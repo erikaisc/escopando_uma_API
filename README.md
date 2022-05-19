@@ -1,4 +1,5 @@
 # escopando_uma_API
+
 ## Escopando uma API - Mini Instagram
 
 ### O que o usuário pode fazer
@@ -28,7 +29,7 @@
 
   1.2 Dados retornados
 
--     sucesso e/ou erro
+-     sucesso ou erro
 
 #### 1.3 Objetivos gerais
 
@@ -45,7 +46,7 @@
 
   2.2 Dados retornados
 
--     sucesso e/ou erro + token
+-     sucesso ou erro + token
 
 #### Objetivos gerais
 
@@ -82,7 +83,7 @@
 -     e-mail, telefone e gênero (privado)
 -     senha
   2.2 Dados retornados
--     sucesso e/ou erro
+-     sucesso ou erro
 
 #### Objetivos gerais
 
@@ -108,6 +109,7 @@
   1.2 Dados retornados
 -     postagens []
 -     foi curtida por mim ou não
+
   -     id
   -     Usuário
     -     URL da foto
@@ -119,6 +121,32 @@
     -     username
     -     texto
   -     Data
+
+  #### Objetivos gerais
+
+1. Validar o token do usuário
+2. Buscar o usuário/cadastro com informação do token
+3. Retornar postagens de outras pessoas
+
+4. POST - Postagens
+   2.1 Dados enviados
+
+-     token (que terá id ou username)
+-     texto da postagem
+-     array com fotos
+
+  2.2 Dados retornados
+
+-     sucesso ou erro
+
+  #### Objetivos gerais
+
+1. Validar o token do usuário
+2. Buscar o usuário/cadastro com informação do token
+3. Exigir que seja informado pelo menos uma foto no array
+4. Cadastrar a postagem para o usuário logado
+5. Cadastro das fotos da postagem
+6. Retornar sucesso ou erro
 
 ---
 
@@ -134,6 +162,15 @@
 
 -     sucesso e/ou erro
 
+#### Objetivos gerais
+
+1. Validar o token do usuário
+2. Buscar o usuário/cadastro com informação do token
+3. Buscar a postagem com informação do id
+4. Verificar se o usuário já curtiu a postagem
+5. Cadastrar a curtida da postagem no banco de dados
+6. Retornar sucesso ou erro
+
 ---
 
 ### Endpoint de Comentário
@@ -147,4 +184,13 @@
 
   1.2 Dados retornados
 
--     sucesso e/ou erro
+-     sucesso ou erro
+
+#### Objetivos gerais
+
+1. Validar o token do usuário
+2. Buscar o usuário/cadastro com informação do token
+3. Validar se há texto no comentário
+4. Buscar a postagem com informação do id
+5. Cadastrar o comentário na postagem
+6. Retornar sucesso ou erro
