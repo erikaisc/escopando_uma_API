@@ -4,7 +4,7 @@
   "description": "1. Login\r 2. Cadastro\r 3. ver os dados de perfil e editar\r 4. ver postagens de outras pessoas.\r 5. ver quantidade de curtidas\r 6. ver comentários de uma postagem\r 7. adicionar curtida (++)\r 8. adicionar comentário",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,10 @@
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
-    "knex": "^2.0.0"
+    "knex": "^2.0.0",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }

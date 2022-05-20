@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const senhaHash = require('../senhaHash');
 
-const login = async(req, res) => {
+const realizarLogin = async(req, res) => {
     const {username,senha} = req.body;
 
     if(!username || !senha){
@@ -42,5 +42,5 @@ const login = async(req, res) => {
 }
 
 module.exports = {
-    login
+    realizarLogin
 }

@@ -3,14 +3,14 @@ const jwt = require('jsonwebtoken');
 const senhaHash = require('../senhaHash');
 
 const verificaLogin = async (req, res, next) => {
-    const authorization = req.headers;
+    const {authorization} = req.headers;
 
     if(!authorization){
         return res.status(401).json('Não autorizado');
     }
 
     try {
-        const token = authorization.replace('Bearer ', '').trim();
+        const token = authorization.replace('Bearer ', '');
 
         const {id} = jwt.verify(token, senhaHash);
 
