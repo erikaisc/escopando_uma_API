@@ -100,7 +100,6 @@ const meuFeed = async (req, res) => {
     const verificaOffset = offset ? offset : 0;
     
     try {
-        // const postagens = knex('postagens').limit(10).offset(verificaOffset);
         const postagens = await knex('postagens').where('usuario_id','!=',id).limit(10).offset(verificaOffset);
         
         if(postagens.length == 0 ){
