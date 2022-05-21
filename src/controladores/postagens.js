@@ -58,6 +58,35 @@ const curtirPostagem = async (req, res) => {
         }
 
         return res.status(200).json('Postagem curtida <3.');
+
+    } catch (error) {
+        return res.status(400).json(error.message);
+    }
+}
+
+const comentarPostagem = async (req, res) => {
+    const {id} = req.usuario;
+    const {postagemId} = req.params;
+    const {texto} = req.body;
+
+    if(!texto){
+        return res.status(404).json('Para adicionar um comentário, é preciso escrever algo.');
+    }
+
+    try {
+        const postagem = await knex('postagens').where({id: postagemId}).first();
+
+        if(!postagem){
+            return res.status(404).json('Postagem não encontrada');
+        }
+        
+        const comentario = await knex('postagem_comentarios').insert({usuario_id: id, postagem_id: postagemId,texto});
+
+        if(!comentario){
+            return res.status(400).json('Não foi possível comentar na postagem.');
+        }
+
+        return res.status(200).json('Comentário enviado.');
         
     } catch (error) {
         return res.status(400).json(error.message);
@@ -66,5 +95,6 @@ const curtirPostagem = async (req, res) => {
 
 module.exports = {
     novaPostagem,
-    curtirPostagem
+    curtirPostagem,
+    comentarPostagem
 }
