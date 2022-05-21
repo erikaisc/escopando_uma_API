@@ -15,6 +15,7 @@ rotas.use(verificaLogin);
 rotas.get('/perfil',usuarios.obterPerfil);
 rotas.put('/perfil',usuarios.atualizarPerfil);
 
+rotas.get('/postagens',postagens.meuFeed);
 rotas.post('/postagens',postagens.novaPostagem);
 rotas.post('/postagens/:postagemId/curtir',postagens.curtirPostagem);
 rotas.post('/postagens/:postagemId/comentar',postagens.comentarPostagem);
