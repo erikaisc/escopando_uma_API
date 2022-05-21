@@ -9,7 +9,7 @@ const novaPostagem = async (req, res) => {
     }
 
     try {
-        const postagem = await knex('postagens').insert({texto, usuario_id :id}).returning('*').debug();
+        const postagem = await knex('postagens').insert({texto, usuario_id :id}).returning('*');
 
         if(!postagem){
             return res.status(400).json('Não foi possível criar a postagem');
@@ -109,7 +109,7 @@ const meuFeed = async (req, res) => {
 
         for (const postagem of postagens) {
             //usuario
-            const usuario = await knex('usuarios').where({id:postagem.id})
+            const usuario = await knex('usuarios').where({id:postagem.usuario_id})
             .select('imagem','username','verificado').first();
 
             postagem.usuario = usuario;
