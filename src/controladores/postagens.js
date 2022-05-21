@@ -34,6 +34,37 @@ const novaPostagem = async (req, res) => {
 
 }
 
+const curtirPostagem = async (req, res) => {
+    const {id} = req.usuario;
+    const {postagemId} = req.params;
+
+    try {
+        const postagem = await knex('postagens').where({id: postagemId}).first();
+
+        if(!postagem){
+            return res.status(404).json('Postagem não encontrada');
+        }
+
+        const jaCurtiu = await knex('postagem_curtidas').where({usuario_id: id, postagem_id: postagemId}).first();
+
+        if(jaCurtiu){
+            return res.status(400).json('Essa postagem já foi curtida por esse usuário.');
+        }
+
+        const curtida = await knex('postagem_curtidas').insert({usuario_id: id, postagem_id: postagemId}).debug();
+
+        if(!curtida){
+            return res.status(400).json('Não foi possível curtir a postagem.');
+        }
+
+        return res.status(200).json('Postagem curtida <3.');
+        
+    } catch (error) {
+        return res.status(400).json(error.message);
+    }
+}
+
 module.exports = {
-    novaPostagem
+    novaPostagem,
+    curtirPostagem
 }

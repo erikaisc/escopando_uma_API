@@ -16,5 +16,6 @@ rotas.get('/perfil',usuarios.obterPerfil);
 rotas.put('/perfil',usuarios.atualizarPerfil);
 
 rotas.post('/postagens',postagens.novaPostagem);
+rotas.post('/postagens/:postagemId/curtir',postagens.curtirPostagem);
 
 module.exports = rotas;
