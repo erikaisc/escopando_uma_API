@@ -2,6 +2,10 @@
 
 O exercício deste repositório consiste em criar o escopo de uma API REST com base nas telas de Login, Cadastro, Feed e Criação de Post no Instagram.
 
+>**Note**
+>
+> O código de aula está disponível na brach master. As alterações realizadas em aula foram incluídas na branch "codigo_atualizado".
+
 ### :white_check_mark: O que o usuário poderá fazer?
 
 1. Login;
